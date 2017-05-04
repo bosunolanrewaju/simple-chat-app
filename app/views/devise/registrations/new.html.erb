@@ -5,6 +5,16 @@
     <%= devise_error_messages! %>
 
     <div class="field">
+      <%= f.label :first_name, class: 'control-label' %><br />
+      <%= f.text_field :first_name, autofocus: true, class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :last_name, class: 'control-label' %><br />
+      <%= f.text_field :last_name, autofocus: true, class: 'form-control' %>
+    </div>
+
+    <div class="field">
       <%= f.label :email, class: 'control-label' %><br />
       <%= f.email_field :email, autofocus: true, class: 'form-control' %>
     </div>
@@ -21,7 +31,12 @@
       <%= f.label :password_confirmation, class: 'control-label' %><br />
       <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
     </div>
-
+    <hr>
+    <div class="field">
+      <%= label_tag :user_role, 'Sign up as:', class: 'control-label' %>
+      <%= f.select :role, options_for_select(['user', 'trainer', 'admin']), prompt: 'Select a role', class: 'form-control' %>
+    </div>
+    <hr>
     <div class="actions">
       <%= f.submit "Sign up", class: 'btn btn-primary' %>
     </div>

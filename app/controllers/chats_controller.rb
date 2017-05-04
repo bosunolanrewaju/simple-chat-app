@@ -6,7 +6,7 @@ class ChatsController < ApplicationController
   end
 
   def index
-    @chats = current_user.chats
+    @chats = Chat.users_messages(current_user.id)
   end
 
   def show

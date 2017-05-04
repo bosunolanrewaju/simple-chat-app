@@ -1,10 +1,26 @@
-<h1>Chat Inbox</h1>
-<p>Click on any message to read</p>
-<ol type="1">
-  <% @chats.each do |chat| %>
-    <li>
-      <%= link_to chat.receiver.name, chat_path(chat) %>
-    </li>
-  <% end %>
-</ol>
+<h1>Your Chat Inbox</h1>
+<%= link_to("New Chat", new_chat_path, class: 'btn btn-success') %>
+<hr>
+<% if @chats.present? %>
+  <ul class="chat" type="1">
+    <% @chats.each do |chat| %>
+      <li>
+        <% if chat.receiver == current_user %>
+          <p><strong>From: </strong><%= chat.sender.name %></p>
+          <p><strong>To: </strong>You</p>
+        <% else %>
+          <p><strong>From: </strong>You</p>
+          <p><strong>To: </strong><%= chat.receiver.name %></p>
+        <% end %>
+        <p><strong>Date: </strong><%= chat.created_at %></p>
+        <p><strong>Message: </strong></p>
+        <p>
+          <%= chat.message %>
+        </p>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No chat messages in your inbox</p>
+<% end %>
 

@@ -21,3 +21,24 @@
 .main {
   margin-top: 50px;
 }
+
+.chat {
+  padding-left: 0;
+  list-style: none;
+
+  li {
+    border-radius: 5px;
+    border: 1px solid grey;
+    color: grey;
+    display: block;
+    margin: 10px 0;
+    padding: 20px;
+    text-decoration: none;
+  }
+}
+
+.new_chat {
+  .actions {
+    margin-top: 20px;
+  }
+}

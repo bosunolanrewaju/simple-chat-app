@@ -1,6 +1,8 @@
-<h1>Message #<%= @chat.id %></h1>
+<%= link_to("Back to Inbox", chats_path , class: 'btn btn-default') %>
+<h1>Message with <%= @chat.receiver.name %></h1>
 <p><strong>To: </strong><%= @chat.receiver.name %></p>
 <p><strong>Date: </strong><%= @chat.created_at %></p>
+<p><strong>Message: </strong></p>
 <p>
   <%= @chat.message %>
 </p>
