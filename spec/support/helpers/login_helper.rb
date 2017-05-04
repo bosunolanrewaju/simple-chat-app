@@ -1,5 +1,5 @@
 module LoginHelper
-  def sign_in(user)
+  def login_user(user)
     visit new_user_session_path
     within "#new_user" do
       fill_form(

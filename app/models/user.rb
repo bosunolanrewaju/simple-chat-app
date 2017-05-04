@@ -7,4 +7,12 @@ class User < ApplicationRecord
   before_save { self.email = email.downcase }
 
   enum role: [:user, :trainer, :admin]
+
+  def name_with_role
+    "#{name} - #{role.capitalize}"
+  end
+
+  def name
+    "#{first_name} #{last_name}"
+  end
 end
