@@ -1,3 +1,10 @@
 <h1>Chat Inbox</h1>
 <p>Click on any message to read</p>
+<ol type="1">
+  <% @chats.each do |chat| %>
+    <li>
+      <%= link_to chat.receiver.name, chat_path(chat) %>
+    </li>
+  <% end %>
+</ol>
 

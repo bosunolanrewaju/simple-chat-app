@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   before_save { self.email = email.downcase }
 
+  has_many :chats, foreign_key: :sender_id
+
   enum role: [:user, :trainer, :admin]
 
   def name_with_role

@@ -1,0 +1,6 @@
+<h1>Message #<%= @chat.id %></h1>
+<p><strong>To: </strong><%= @chat.receiver.name %></p>
+<p><strong>Date: </strong><%= @chat.created_at %></p>
+<p>
+  <%= @chat.message %>
+</p>
