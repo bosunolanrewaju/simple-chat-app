@@ -42,3 +42,11 @@
     margin-top: 20px;
   }
 }
+
+.alert-alert {
+  @extend .alert-danger;
+}
+
+.alert-notice {
+  @extend .alert-success;
+}

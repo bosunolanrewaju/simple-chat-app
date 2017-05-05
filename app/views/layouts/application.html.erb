@@ -9,10 +9,11 @@
   </head>
 
   <body>
-    <%- flash.each do |key, value| %>
-      <div class="alert alert-<%= key %>"><%= value %></div>
-    <% end %>
     <div class="col-md-6 float-center center-block main">
+      <%- flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+
       <% if current_user %>
         <%= link_to("Logout", destroy_user_session_path, method: :delete , class: 'btn btn-danger') %>
         <%= link_to("Back to Home", root_path , class: 'btn btn-default') %>
