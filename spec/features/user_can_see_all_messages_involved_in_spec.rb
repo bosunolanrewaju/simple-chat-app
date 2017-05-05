@@ -24,4 +24,17 @@ feature "user can see all messages" do
     expect(page).to have_text chat.first.sender.name
     expect(page).to have_css('.chat li', count: 3)
   end
+
+  scenario "admin sees all messages on the platform" do
+    user = create(:user, :admin)
+    create(:chat, sender: user)
+    create_list(:chat, 4)
+    chat = create_list(:chat, 2, receiver: user)
+
+    login_user user
+    visit chats_path
+
+    expect(page).to have_text chat.first.sender.name
+    expect(page).to have_css('.chat li', count: 7)
+  end
 end

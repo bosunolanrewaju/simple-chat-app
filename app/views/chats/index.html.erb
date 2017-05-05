@@ -5,18 +5,17 @@
   <ul class="chat" type="1">
     <% @chats.each do |chat| %>
       <li>
-        <% if chat.receiver == current_user %>
-          <p><strong>From: </strong><%= chat.sender.name %></p>
-          <p><strong>To: </strong>You</p>
-        <% else %>
-          <p><strong>From: </strong>You</p>
-          <p><strong>To: </strong><%= chat.receiver.name %></p>
-        <% end %>
+        <p><strong>From: </strong><%= message_sender(chat) %></p>
+        <p><strong>To: </strong><%= message_receiver(chat) %></p>
         <p><strong>Date: </strong><%= chat.created_at %></p>
         <p><strong>Message: </strong></p>
         <p>
           <%= chat.message %>
         </p>
+        <% if current_user.admin? %>
+          <%= link_to "Edit", edit_chat_path(chat) %> |
+          <%= link_to "Delete", chat_path(chat), method: :delete %>
+        <% end %>
       </li>
     <% end %>
   </ul>
